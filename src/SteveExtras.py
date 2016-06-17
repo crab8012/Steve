@@ -1,9 +1,15 @@
 import subprocess
 import speech_recognition as sr
+import platform
 #import Steve.crap as ai
 
 def speak(text):
-	subprocess.call('"C:\Program Files (x86)\eSpeak\command_line\espeak.exe" '+text, shell=True)
+	if platform.system() == 'Windows':
+		subprocess.call('"C:\Program Files (x86)\eSpeak\command_line\espeak.exe" '+text, shell=True)
+	elif platform.system() == 'Linux':
+		subprocess.call('espeak '+text, shell=True)
+	elif platform.system() == 'Darwin':
+		print("Sorry. There is no support for Mac OS X."
 
 def recognize():
 	r = sr.Recognizer()

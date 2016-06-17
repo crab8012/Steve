@@ -4,7 +4,7 @@ import crabGLShapes as shape
 import SteveExtras as extras
 import SteveCommands as commands
 import threading
-
+import platform
 
 #key = pyglet.window.key
 #if symbol == key.SPACE:

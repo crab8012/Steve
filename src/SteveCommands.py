@@ -1,6 +1,7 @@
 import SteveExtras as extras
 import subprocess
 import sys
+import platform
 
 def doCommand(text):
 	text = text.lower()
@@ -22,7 +23,13 @@ def doCommand(text):
 		
 	#This is for accessibility and opening programs.
 	if words[0] == "open":
-		subprocess.call(words[1]+'.exe', shell=True)
+		if platform.system() == 'Windows':
+			subprocess.call(words[1]+'.exe', shell=True)
+		elif platform.system() == 'Linux':
+			subprocess.call(words[1], shell=True)
+		elif platform.system() == 'Darwin':
+			print("Sorry. There is no support for Mac OS X."
+		
 	if text == "quit" or text == "exit":
 		sys.exit(0)
 	
